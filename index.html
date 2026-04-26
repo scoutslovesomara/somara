@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticker Profile Board</title>
+    <style>
+        :root {
+            --board-width: 500px;
+            --board-height: 500px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fce4ec;
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        /* The Main Board Section */
+        .profile-section {
+            width: var(--board-width);
+            height: var(--board-height);
+            background-image: urlhttps://media.discordapp.net/attachments/1017751096795607074/1497734188198138017/D30DB3E4-A7DE-4BD2-945B-4890AF691A5A.jpg?ex=69ee9929&is=69ed47a9&hm=30628e7e8a5e41c7ee527c537791eeb1b02ad8b06719839d2ad7a45b88217af0&=&format=webp&width=746&height=746
+            background-size: cover;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        /* Profile Area */
+        .pfp-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            z-index: 5;
+        }
+
+        .pfp-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('lace-frame.png'); /* Your lace frame */
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 2;
+        }
+
+        .pfp-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 50%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* Text Boxes */
+        .content-box {
+            width: 350px;
+            height: 100px;
+            background: white;
+            border: 2px solid #000;
+            border-radius: 15px;
+            margin: 15px 0;
+            position: relative;
+            z-index: 3;
+            padding: 10px;
+        }
+
+        /* Sticker Placement Protocol */
+        .sticker {
+            position: absolute;
+            pointer-events: none; /* Keeps them from blocking clicks */
+            z-index: 10;
+        }
+
+        .snoopy { top: 10px; left: 10px; width: 100px; }
+        .chiikawa { top: 10px; right: 20px; width: 60px; }
+        .bunnies-top { top: 100px; right: 5px; width: 80px; }
+        
+        /* Middle Stickers (overlapping boxes) */
+        .bunny-plush { bottom: -10px; left: -30px; width: 80px; }
+        .scout-pixel { bottom: -5px; right: -10px; width: 70px; }
+        
+        /* Bottom Stickers */
+        .cat-plush { bottom: -10px; left: -25px; width: 80px; }
+        .scout-chibi { bottom: -10px; right: -10px; width: 80px; }
+
+        .bread-icon {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="profile-section">
+        <img src="snoopy.png" class="sticker snoopy">
+        <img src="chiikawa.png" class="sticker chiikawa">
+        <img src="bunnies-corner.png" class="sticker bunnies-top">
+
+        <div class="pfp-container">
+            <div class="pfp-frame"></div>
+            <div class="pfp-circle">
+                <img src="your-pfp.jpg" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+        </div>
+
+        <div class="content-box">
+            <img src="bread.png" class="bread-icon">
+            <img src="white-bunny.png" class="sticker bunny-plush">
+            <img src="scout-pixel.png" class="sticker scout-pixel">
+            <div class="text-content">Add your info here!</div>
+        </div>
+
+        <div class="content-box">
+            <img src="bread.png" class="bread-icon">
+            <img src="cat-plush.png" class="sticker cat-plush">
+            <img src="scout-chibi.png" class="sticker scout-chibi">
+            <div class="text-content">More fun stuff here...</div>
+        </div>
+    </section>
+
+</body>
+</html>
