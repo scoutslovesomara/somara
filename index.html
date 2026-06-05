@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticker Profile Board</title>
     <style>
+        /* Loading the local TF2 font from your repository */
+        @font-face {
+            font-family: 'TF2 Build';
+            src: url('TF2.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --board-width: 500px;
         }
@@ -19,7 +27,8 @@
             background-size: cover;
             background-attachment: fixed;
             margin: 20px;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            /* Swapped Comic Sans for your TF2 font */
+            font-family: 'TF2 Build', sans-serif;
         }
 
         /* The Main Board Section */
@@ -87,6 +96,13 @@
             color: #333;
         }
 
+        /* Ensuring headers match the font scheme nicely */
+        h2 {
+            margin-top: 0;
+            font-family: 'TF2 Build', Impact, sans-serif;
+            letter-spacing: 0.5px;
+        }
+
         /* Sticker Logic */
         .sticker {
             position: absolute;
@@ -145,7 +161,7 @@
             <img src="Untitled128_20260426064418.webp" class="sticker scout-chibi">
             <h2> Facts</h2>
             <div class="text-content">The reason why I love Scout was really because of his confidence, his pictures, his fame, his skills and how he is a funny guy and I do imagine him as one goofball but is romantic. <br>
-        I have no DNI's. <br> I'm a sharing yumeshipper. <br> The reason why Somara doesn't look like she's from the 1960s because in my lore, Merasmus deployed Somara from the 2000s and brought her in 1960s with no literal motive. <br> Somara is canonically 21. </div>
+        DNI: Roleplayers (sorry not sorry but i am not interested to do canon shit for you). <br> I'm a sharing yumeshipper. <br> The reason why Somara doesn't look like she's from the 1960s because in my lore, Merasmus deployed Somara from the 2000s and brought her in 1960s with no literal motive. <br> Somara is canonically 21. </div>
         </div>
     </section>
 
