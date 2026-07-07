@@ -3,180 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticker Profile Board</title>
+    <title>Profile Board</title>
     <style>
-        /* Loading your new 04B_30 TrueType font */
-        @font-face {
-            font-family: '04b_30';
-            src: url('04B_30__[1].TTF') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        :root {
-            /* ADJUSTED CONTEXT: Stretched to match the somadcuzbad layout max-width limits */
-            --board-width: 100%;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 
         body {
+            margin: 0;
+            font-family: "Jersey 15", serif;
+            color: #fff;
+            background-color: #000;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #fff;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-family: 'Jersey 15', sans-serif;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 2px solid #fff;
+            text-align: center;
+        }
+
+        section h2, section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .center-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            /* Added a cute sparkly background for the outside */
-            background-image: url('https://i.pinimg.com/originals/0c/e5/ef/0ce5ef27f70a4e5d9079aac5ba7bae15.gif');
-            background-size: cover;
-            background-attachment: fixed;
-            margin: 20px;
-            /* Applied your new pixel font here */
-            font-family: '04b_30', sans-serif;
+            align-items: flex-start;   /* keep tops aligned */
+            gap: 20px;                  /* space between the two cards */
+            flex-wrap: wrap;           /* stack on very narrow screens */
         }
 
-        /* The Main Board Section - Adjusted to match layout constraints */
-        .profile-section {
-            width: var(--board-width);
-            max-width: 600px; /* Same max boundary as the somadcuzbad sections */
-            background-image: url('D30DB3E4-A7DE-4BD2-945B-4890AF691A5A.webp'); 
-            background-size: cover;
-            background-position: center;
+        .about-box {
+            width: 250px;
+            padding: 15px;
+            border: 2px solid #d9d9d9;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: ghostwhite;
+        }
+
+        .about-box h3 {
+            font-size: 1.2em;
+            color: #c74e4e;
+            font-style: italic;
+        }
+
+        .accounts a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .accounts a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #fff;
+        }
+
+        .stripe {
+            height: 20px;
+            background: repeating-linear-gradient(
+                45deg,
+                white,
+                white 10px,
+                black 10px,
+                black 20px
+            );
+            margin: 20px 0;
+        }
+
+        .carousel-container {
             position: relative;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 0;
-            border: 4px solid #fff; /* Added a white border to make it pop */
-        }
-
-        /* Fixed PFP Container Styles */
-        .pfp-container {
-            position: relative;
-            width: 180px; /* Sized to fit the lace frame sticker */
-            height: 180px;
-            z-index: 5;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .pfp-frame {
-            position: absolute;
             width: 100%;
-            height: 100%;
-            background-image: url('Untitled124_20260426065433.webp');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: 2;
-        }
-
-        .pfp-circle {
-            width: 110px; /* Adjusted to fit inside the lace hole */
-            height: 110px;
-            background-color: #ffffff; /* Pure white as requested */
-            border-radius: 50%;
-            z-index: 1;
+            max-width: 600px;
+            margin: auto;
             overflow: hidden;
-            border: 2px solid #fce4ec;
         }
 
-        /* FIXED CIRCLE STYLING: Imported directly from the somadcuzbad property logic */
-        .pfp-circle img {
-            border-radius: 50%;
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
             width: 100%;
-            height: 100%;
+            object-fit: cover;
+        }
+
+        button.prev, button.next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button.prev { left: 10px; }
+        button.next { right: 10px; }
+
+        button.prev:hover, button.next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .pfp-container {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .pfp-container img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             border: 4px solid #fff;
         }
-        
-        /* Adjusted boxes to neatly align with the 600px stretched canvas layout */
-        .content-box {
-            width: 520px;
-            min-height: 100px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #000;
-            border-radius: 15px;
-            margin: 25px 0;
-            position: relative;
-            z-index: 3;
-            padding: 20px;
-            font-size: 14px;
-            line-height: 1.4;
-            word-wrap: break-word;
-            color: #333;
-        }
-
-        /* Ensuring headers match the font scheme nicely */
-        h2 {
-            margin-top: 0;
-            font-family: '04b_30', Impact, sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        /* Sticker Logic */
-        .sticker {
-            position: absolute;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        /* Top background stickers */
-        .snoopy { top: 10px; left: 10px; width: 100px; }
-        .chiikawa { top: 10px; right: 20px; width: 60px; }
-        .bunnies-top { top: 100px; right: 5px; width: 80px; }
-        
-        /* FIXED POSITION CHARACTERS: Adjusted coordinates so they safely lock to the new wide container corners */
-        .bunny-plush { bottom: -15px; left: -30px; width: 90px; }
-        .scout-pixel { bottom: -10px; right: -20px; width: 80px; }
-        .cat-plush { bottom: -15px; left: -25px; width: 90px; }
-        .scout-chibi { bottom: -15px; right: -20px; width: 90px; }
-
-        .bread-icon {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            z-index: 11;
-        }
-
     </style>
 </head>
 <body>
 
-    <section class="profile-section">
-        <img src="7D8B3DB1-7000-452F-BC47-1745CF31DF34.webp" class="sticker snoopy">
-        <img src="4E85C154-C080-4B8E-BD93-E72F4CF7EED5.webp" class="sticker chiikawa">
-        <img src="B7F51AE2-F05F-4E68-A970-2ACEBE38ABA3.webp" class="sticker bunnies-top">
+    <header>
+        <div class="logo">SOMARA</div>
+    </header>
 
+    <main>
         <div class="pfp-container">
-            <div class="pfp-frame"></div>
-            <div class="pfp-circle">
-                <!-- Put your image URL inside the src below -->
-                <img src="https://i.pinimg.com/736x/e0/fb/9c/e0fb9cfcaf6a8bd8ee0ddba40dd2c624.jpg" alt="Profile Picture">
-            </div>
+            <img src="https://i.pinimg.com/736x/e0/fb/9c/e0fb9cfcaf6a8bd8ee0ddba40dd2c624.jpg" alt="Profile Picture">
         </div>
 
-        <div class="content-box">
-            <img src="EACF7392-D565-42E5-80BE-018D32593000.webp" class="bread-icon">
-            <img src="7139EDF8-46E3-403D-A01F-38E94C77AFED.webp" class="sticker bunny-plush">
-            <img src="Untitled128_20260426064435.webp" class="sticker scout-pixel">
+        <div class="stripe"></div>
+
+        <section>
+            <h2>About Me</h2>
             <div class="text-content">
-                Hello! My name is Somara aka scoutswifeforever, You may already know me as someone who does the posing tf2 videos but theres alot of stuff I haven't stated about myself that I wanted to share through this info page! Anyways, My name is Somara, My age is i rather hide, I am from the Philippines, and I am into the mcbling and cutecore aesthetic. People calls me a larper alot even though i DO play tf2 and i've known tf2 when i was a kid so it doesn't make me any less of a larper if i already knew it to begin with.
+                Hello! My name is Somara aka scoutswifeforever. You may already know me as someone who does the posing tf2 videos but there's a lot of stuff I haven't stated about myself that I wanted to share through this info page! Anyways, My name is Somara, My age is i rather hide, I am from the Philippines, and I am into the mcbling and cutecore aesthetic. People call me a larper alot even though i DO play tf2 and i've known tf2 when i was a kid so it doesn't make me any less of a larper if i already knew it to begin with.
             </div>
-        </div>
+        </section>
 
-        <div class="content-box">
-            <img src="EACF7392-D565-42E5-80BE-018D32593000.webp" class="bread-icon">
-            <img src="Untitled_project__33_-removebg-preview.png" class="sticker cat-plush">
-            <img src="Untitled128_20260426064418.webp" class="sticker scout-chibi">
-            <h2> Facts</h2>
-            <div class="text-content">The reason why I love Scout was really because of his confidence, his pictures, his fame, his skills and how he is a funny guy and I do imagine him as one goofball but is romantic. <br>
-        DNI: Roleplayers (sorry not sorry but i am not interested to do canon shit for you). <br> • People who love being an asshole ⁽ᵇᵉʰᶦⁿᵈ ᶠʳᶦᵉⁿᵈˢ' ᵇᵃᶜᵏˢ, ᵉˣᵗʳᵉᵐᵉ ʲᵉᵃˡᵒᵘˢʸ, ᵃⁿᵈ ʰᵒˢᵗᶦˡᵉ 'ᵐᵃᶦⁿ ᶜʰᵃʳᵃᶜᵗᵉʳ' ˢʸⁿᵈʳᵒᵐᵉᵀᴬᴿᴳᴱᵀᴱᴰᵎᵎᵎ⁾<br> I'm a sharing yumeshipper. <br> The reason why Somara doesn't look like she's from the 1960s because in my lore, Merasmus deployed Somara from the 2000s and brought her in 1960s with no literal motive. <br> Somara is canonically 21. </div>
-        </div>
-    </section>
+        <section>
+            <h2>Facts</h2>
+            <div class="text-content">
+                The reason why I love Scout was really because of his confidence, his pictures, his fame, his skills and how he is a funny guy and I do imagine him as one goofball but is romantic. <br><br>
+                <strong>DNI:</strong> Roleplayers (sorry not sorry but i am not interested to do canon shit for you). <br> 
+                • People who love being an asshole ⁽ᵇᵉʰᶦⁿᵈ ᶠʳᶦᵉⁿᵈˢ' ᵇᵃᶜᵏˢ, ᵉˣᵗʳᵉᵐᵉ ʲᵉᵃˡᵒᵘˢʸ, ᵃⁿᵈ ʰᵒˢᵗᶦˡᵉ 'ᵐᵃᶦⁿ ᶜʰᵃʳᵃᶜᵗᵉʳ' ˢʸⁿᵈʳᵒᵐᵉᵀᴬᴿᴳᴱᵀᴱᴰᵎᵎᵎ⁾<br><br>
+                I'm a sharing yumeshipper. <br><br>
+                The reason why Somara doesn't look like she's from the 1960s because in my lore, Merasmus deployed Somara from the 2000s and brought her in 1960s with no literal motive. <br><br>
+                Somara is canonically 21.
+            </div>
+        </section>
+
+        <div class="stripe"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 scoutswifeforever</p>
+    </footer>
 
 </body>
 </html>
