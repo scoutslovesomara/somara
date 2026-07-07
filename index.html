@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticker Profile Board</title>
     <style>
-        /* Loading the local TF2 font from your repository */
+        /* Loading your new 04B_30 TrueType font */
         @font-face {
-            font-family: 'TF2 Build';
-            src: url('TF2.woff2') format('woff2');
+            font-family: '04b_30';
+            src: url('04B_30__[1].TTF') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
         :root {
-            --board-width: 500px;
+            /* ADJUSTED CONTEXT: Stretched to match the somadcuzbad layout max-width limits */
+            --board-width: 100%;
         }
 
         body {
@@ -27,13 +28,14 @@
             background-size: cover;
             background-attachment: fixed;
             margin: 20px;
-            /* Swapped Comic Sans for your TF2 font */
-            font-family: 'TF2 Build', sans-serif;
+            /* Applied your new pixel font here */
+            font-family: '04b_30', sans-serif;
         }
 
-        /* The Main Board Section */
+        /* The Main Board Section - Adjusted to match layout constraints */
         .profile-section {
             width: var(--board-width);
+            max-width: 600px; /* Same max boundary as the somadcuzbad sections */
             background-image: url('D30DB3E4-A7DE-4BD2-945B-4890AF691A5A.webp'); 
             background-size: cover;
             background-position: center;
@@ -79,9 +81,19 @@
             overflow: hidden;
             border: 2px solid #fce4ec;
         }
+
+        /* FIXED CIRCLE STYLING: Imported directly from the somadcuzbad property logic */
+        .pfp-circle img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
         
+        /* Adjusted boxes to neatly align with the 600px stretched canvas layout */
         .content-box {
-            width: 350px;
+            width: 520px;
             min-height: 100px;
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #000;
@@ -99,7 +111,7 @@
         /* Ensuring headers match the font scheme nicely */
         h2 {
             margin-top: 0;
-            font-family: 'TF2 Build', Impact, sans-serif;
+            font-family: '04b_30', Impact, sans-serif;
             letter-spacing: 0.5px;
         }
 
@@ -115,11 +127,11 @@
         .chiikawa { top: 10px; right: 20px; width: 60px; }
         .bunnies-top { top: 100px; right: 5px; width: 80px; }
         
-        /* Stickers overlapping the boxes */
-        .bunny-plush { bottom: -15px; left: -35px; width: 90px; }
-        .scout-pixel { bottom: -10px; right: -15px; width: 80px; }
-        .cat-plush { bottom: -15px; left: -30px; width: 90px; }
-        .scout-chibi { bottom: -15px; right: -15px; width: 90px; }
+        /* FIXED POSITION CHARACTERS: Adjusted coordinates so they safely lock to the new wide container corners */
+        .bunny-plush { bottom: -15px; left: -30px; width: 90px; }
+        .scout-pixel { bottom: -10px; right: -20px; width: 80px; }
+        .cat-plush { bottom: -15px; left: -25px; width: 90px; }
+        .scout-chibi { bottom: -15px; right: -20px; width: 90px; }
 
         .bread-icon {
             position: absolute;
@@ -142,7 +154,8 @@
         <div class="pfp-container">
             <div class="pfp-frame"></div>
             <div class="pfp-circle">
-                <img src="" style="width:100%; height:100%; object-fit:cover;">
+                <!-- Put your image URL inside the src below -->
+                <img src="https://i.pinimg.com/736x/e0/fb/9c/e0fb9cfcaf6a8bd8ee0ddba40dd2c624.jpg" alt="Profile Picture">
             </div>
         </div>
 
@@ -161,7 +174,7 @@
             <img src="Untitled128_20260426064418.webp" class="sticker scout-chibi">
             <h2> Facts</h2>
             <div class="text-content">The reason why I love Scout was really because of his confidence, his pictures, his fame, his skills and how he is a funny guy and I do imagine him as one goofball but is romantic. <br>
-        DNI: Roleplayers (sorry not sorry but i am not interested to do canon shit for you). <br> I'm a sharing yumeshipper. <br> The reason why Somara doesn't look like she's from the 1960s because in my lore, Merasmus deployed Somara from the 2000s and brought her in 1960s with no literal motive. <br> Somara is canonically 21. </div>
+        DNI: Roleplayers (sorry not sorry but i am not interested to do canon shit for you). <br> • People who love being an asshole ⁽ᵇᵉʰᶦⁿᵈ ᶠʳᶦᵉⁿᵈˢ' ᵇᵃᶜᵏˢ, ᵉˣᵗʳᵉᵐᵉ ʲᵉᵃˡᵒᵘˢʸ, ᵃⁿᵈ ʰᵒˢᵗᶦˡᵉ 'ᵐᵃᶦⁿ ᶜʰᵃʳᵃᶜᵗᵉʳ' ˢʸⁿᵈʳᵒᵐᵉᵀᴬᴿᴳᴱᵀᴱᴰᵎᵎᵎ⁾<br> I'm a sharing yumeshipper. <br> The reason why Somara doesn't look like she's from the 1960s because in my lore, Merasmus deployed Somara from the 2000s and brought her in 1960s with no literal motive. <br> Somara is canonically 21. </div>
         </div>
     </section>
 
